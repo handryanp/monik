@@ -148,6 +148,37 @@
         </div>
     </div>
 
+    <!-- Section Galeri Foto -->
+    <section style="margin: 60px auto; max-width: 900px; text-align: center;">
+        <h2 style="font-size:2.2rem; margin-bottom: 20px; color: #349d8b;">Galeri Monik</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <img src="img/monik3.jpg" title="2023" alt="2023" class="gallery-img" style="width: 200px; height: 200px; object-fit: cover; border-radius: 10px; box-shadow: 0 2px 8px #ccc; cursor: pointer;">
+            <img src="img/monik2.jpg" title="2024" alt="2024" class="gallery-img" style="width: 200px; height: 200px; object-fit: cover; border-radius: 10px; box-shadow: 0 2px 8px #ccc; cursor: pointer;">
+            <img src="img/monik4.jpg" title="2024" alt="2024" class="gallery-img" style="width: 200px; height: 200px; object-fit: cover; border-radius: 10px; box-shadow: 0 2px 8px #ccc; cursor: pointer;">
+            <img src="img/monik5.jpg" title="2025" alt="2025" class="gallery-img" style="width: 200px; height: 200px; object-fit: cover; border-radius: 10px; box-shadow: 0 2px 8px #ccc; cursor: pointer;">
+
+            <!-- Modal for image preview -->
+            <div id="imgModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
+                <span id="closeModal" style="position:absolute;top:30px;right:40px;font-size:40px;color:#fff;cursor:pointer;">&times;</span>
+                <img id="modalImg" src="" alt="" style="max-width:90vw; max-height:90vh; border-radius:16px; box-shadow:0 4px 24px #000;">
+            </div>
+            <script>
+                document.querySelectorAll('.gallery-img').forEach(img => {
+                    img.addEventListener('click', function() {
+                        document.getElementById('modalImg').src = this.src;
+                        document.getElementById('imgModal').style.display = 'flex';
+                    });
+                });
+                document.getElementById('closeModal').onclick = function() {
+                    document.getElementById('imgModal').style.display = 'none';
+                };
+                document.getElementById('imgModal').onclick = function(e) {
+                    if(e.target === this) this.style.display = 'none';
+                };
+            </script>
+        </div>
+    </section>
+
 </body>
     <!-- Greensock -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
